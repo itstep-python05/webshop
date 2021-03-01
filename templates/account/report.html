@@ -9,8 +9,8 @@
 					<div class="col-md-12">
 						<h3 class="breadcrumb-header">{{ title }}</h3>
 						<ul class="breadcrumb-tree">
-							<li><a href="#">home</a></li>
-							<li class="active">index</li>
+							<li><a href="#">account</a></li>
+							<li class="active">report</li>
 						</ul>
 					</div>
 				</div>
@@ -22,7 +22,13 @@
 			<div class="container">
 				<div class="row">
                     <!---CONTENT PLACEHOLDER --->
-                    <h3 style="color: gray">Контент главной страницы ...</h3>
+                    <h4 style="color: {{ color_x }}">{{ mess_x }}</h4>
+					<ul>
+						<li>{{ login }}</li>
+						<li>{{ pass1 }}</li>
+						<li>{{ pass2 }}</li>
+						<li>{{ email }}</li>
+					</ul>
 					<!---/CONTENT PLACEHOLDER --->
 				</div>
 			</div>

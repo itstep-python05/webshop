@@ -8,8 +8,12 @@ def index(request):
 
 
 def about(request):
-    return render(request, 'home/about.html')
+    return render(request, 'home/about.html', context={
+        'title': 'Про сайт'
+    })
 
 
 def contacts(request):
-    return render(request, 'home/contacts.html')
+    return render(request, 'home/contacts.html', context={
+        'title': 'Контакты'
+    })

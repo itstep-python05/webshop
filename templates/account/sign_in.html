@@ -1,0 +1,64 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+		<div id="breadcrumb" class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="breadcrumb-header">{{ title }}</h3>
+						<ul class="breadcrumb-tree">
+							<li><a href="#">account</a></li>
+							<li class="active">sign_in</li>
+						</ul>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<div class="section small">
+			<div class="container">
+				<div class="row">
+                    <!----------------------------------CONTENT PLACEHOLDER ------------------------------------------>
+                    <form id="form-2" action="/account/sign_in" method="POST">
+						{% csrf_token %}
+						<p>
+							<label for="login">Логин:</label><br>
+							<input type="text" id="login" name="login" class="inp" required>
+							<span id="login_err" class="error"></span>
+						</p>
+						<p>
+							<label for="pass1">Пароль:</label><br>
+							<input type="password" id="pass1" name="pass1" class="inp" required>
+							<span id="pass1_err" class="error"></span>
+						</p>
+						<p style="margin-top: 30px">
+							<input type="checkbox" id="save" name="save">&nbsp;
+							<label for="pass1">Сохранить в системе</label>
+						</p>
+						<p>
+							<input type="submit" id="submit" value="Войти" class="btn btn-success b">
+							<input type="reset" id="reset" value="Отмена" class="btn btn-primery b">
+						</p>
+					</form>
+					<!----------------------------------/CONTENT PLACEHOLDER ----------------------------------------->
+				</div>
+			</div>
+		</div>
+		<style>
+			.b {
+				width: 150px;
+				margin-top: 15px;
+				margin-right: 5px;
+			}
+			.inp {
+				width: 40%;
+				padding: 5px;
+			}
+			#form-2 {
+				font-size: italic 11pt "Trebuchet MS";
+			}
+		</style>
+{% endblock content %}

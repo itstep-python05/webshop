@@ -1,9 +1,11 @@
 from django.urls import path
-from .views import entry, logout, reg
+from .views import sign_up, sign_in, sign_out, profile, ajax_reg
 
 
 urlpatterns = [
-    path('entry/', entry),
-    path('logout/', logout),
-    path('reg/', reg),
-]
+    path('sign_in', sign_in),
+    path('sign_out', sign_out),
+    path('sign_up', sign_up),
+    path('profile', profile),
+    path('ajax_reg', ajax_reg),
+    ]

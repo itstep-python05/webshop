@@ -1,0 +1,70 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+		<div id="breadcrumb" class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="breadcrumb-header">{{ title }}</h3>
+						<ul class="breadcrumb-tree">
+							<li><a href="#">account</a></li>
+							<li class="active">sign_up</li>
+						</ul>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<div class="section small">
+			<div class="container">
+				<div class="row">
+                    <!----------------------------------CONTENT PLACEHOLDER ------------------------------------------>
+                    <form id="form-1" action="/account/sign_up" method="POST">
+						{% csrf_token %}
+						<p>
+							<label for="login">Логин:</label><br>
+							<input type="text" id="login" name="login" class="inp" required>
+							<span id="login_err" class="error"></span>
+						</p>
+						<p>
+							<label for="pass1">Пароль:</label><br>
+							<input type="password" id="pass1" name="pass1" class="inp" required>
+							<span id="pass1_err" class="error"></span>
+						</p>
+						<p>
+							<label for="pass2">Повторите пароль:</label><br>
+							<input type="password" id="pass2" name="pass2" class="inp" required>
+							<span id="pass2_err" class="error"></span>
+						</p>
+						<p>
+							<label for="email">E-mail:</label><br>
+							<input type="email" id="email" name="email" class="inp" required>
+							<span id="email_err" class="error"></span>
+						</p>
+						<p>
+							<input type="submit" id="submit" value="Отправить" class="btn btn-success b">
+							<input type="reset" id="reset" value="Очистить" class="btn btn-primery b">
+						</p>
+					</form>
+					<!----------------------------------/CONTENT PLACEHOLDER ----------------------------------------->
+				</div>
+			</div>
+		</div>
+		<style>
+			.b {
+				width: 150px;
+				margin-top: 30px;
+				margin-right: 5px;
+			}
+			.inp {
+				width: 40%;
+				padding: 5px;
+			}
+			#form-1 {
+				font-size: italic 11pt "Trebuchet MS";
+			}
+		</style>
+{% endblock content %}
