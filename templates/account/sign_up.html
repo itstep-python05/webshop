@@ -1,6 +1,7 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
+{% load static %}
 		<div id="breadcrumb" class="section">
 			<!-- container -->
 			<div class="container">
@@ -22,7 +23,7 @@
 			<div class="container">
 				<div class="row">
                     <!----------------------------------CONTENT PLACEHOLDER ------------------------------------------>
-                    <form id="form-1" action="/account/sign_up" method="POST">
+                    <form id="form-1" action="/account/sign_up" method="POST" onsubmit="return false">
 						{% csrf_token %}
 						<p>
 							<label for="login">Логин:</label><br>
@@ -64,7 +65,14 @@
 				padding: 5px;
 			}
 			#form-1 {
-				font-size: italic 11pt "Trebuchet MS";
+				font-style: italic 11pt "Trebuchet MS";
+			}
+			.error {
+				display: block;
+				margin-top: 3px;
+				color: red;
+				font-style: italic;
 			}
 		</style>
+		<script src="{% static 'js/sign_up.js' %}"></script>
 {% endblock content %}
