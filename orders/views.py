@@ -17,6 +17,7 @@ def confirm(request):
         'user_orders': Order.objects.filter(user_id=request.user.id)
     })
 
+
 def create(request):
     return render(request, 'orders/create.html', context={
     })
@@ -29,6 +30,12 @@ def update(request, id):
 
 def delete(request, id):
     return render(request, 'orders/delete.html', context={
+    })
+
+
+def email(request):
+    return render(request, 'orders/email.html', context={
+        'title': 'Почтовые уведомления'
     })
 
 

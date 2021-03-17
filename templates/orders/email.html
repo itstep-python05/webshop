@@ -10,7 +10,7 @@
 						<h3 class="breadcrumb-header">{{ title }}</h3>
 						<ul class="breadcrumb-tree">
 							<li><a href="#">orders</a></li>
-							<li class="active">confirm</li>
+							<li class="active">email</li>
 						</ul>
 					</div>
 				</div>
@@ -22,31 +22,7 @@
 			<div class="container">
 				<div class="row">
                     <!---CONTENT PLACEHOLDER --->
-                    <table id="orders_table" border="1">
-						<thead>
-							<tr>
-								<th>Order</th>
-								<th>Product</th>
-								<th>Price</th>
-								<th>Date</th>
-								<th>Status</th>
-							</tr>
-						</thead>
-						<tbody>
-							{% for order in user_orders %}
-								<tr>
-									<td>{{ order.title }}</td>
-									<td>{{ order.product.title }}</td>
-									<td>{{ order.amount }}</td>
-									<td>{{ order.date }}</td>
-									<td>{{ order.status }}</td>
-								</tr>
-							{% endfor %}
-						</tbody>
-					</table>
-					<p class="p1">
-					<a href="/orders/email" class="btn btn-success">Confirm Order</a>
-					</p>
+					<h4>Отчет об отправке почтовых уведомлений</h4>
 					<!---/CONTENT PLACEHOLDER --->
 				</div>
 			</div>
@@ -71,9 +47,6 @@
 				font-weight: normal;
 				font-style: italic;
 			}
-			.p1 {
-				text-align: center;
-				margin-top: 30px;
-			}
+
 		</style>
 {% endblock content %}

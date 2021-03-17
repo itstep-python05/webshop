@@ -11,7 +11,7 @@
 						<h3 class="breadcrumb-header">{{ title }}</h3>
 						<ul class="breadcrumb-tree">
 							<li><a href="#">catalog</a></li>
-							<li class="active">index</li>
+							<li class="active">select</li>
 						</ul>
 					</div>
 				</div>
@@ -31,17 +31,17 @@
 							<div class="checkbox-filter">
 
 								<div class="input-checkbox">
-									<input type="checkbox" id="2">
-									<label for="2">
+									<input type="checkbox" id="category-1">
+									<label for="category-1">
 										<span></span>
-										Notebooks
+										Laptops
 										<small>(120)</small>
 									</label>
 								</div>
 
 								<div class="input-checkbox">
-									<input type="checkbox" id="1">
-									<label for="1">
+									<input type="checkbox" id="category-2">
+									<label for="category-2">
 										<span></span>
 										Smartphones
 										<small>(740)</small>
@@ -49,17 +49,17 @@
 								</div>
 
 								<div class="input-checkbox">
-									<input type="checkbox" id="3">
-									<label for="3">
+									<input type="checkbox" id="category-3">
+									<label for="category-3">
 										<span></span>
-										Tablets
+										Cameras
 										<small>(1450)</small>
 									</label>
 								</div>
 
 								<div class="input-checkbox">
-									<input type="checkbox" id="4">
-									<label for="4">
+									<input type="checkbox" id="category-4">
+									<label for="category-4">
 										<span></span>
 										Accessories
 										<small>(578)</small>
@@ -67,14 +67,22 @@
 								</div>
 
 								<div class="input-checkbox">
-									<input type="checkbox" id="5">
-									<label for="5">
+									<input type="checkbox" id="category-5">
+									<label for="category-5">
 										<span></span>
-										Headphones
+										Laptops
 										<small>(120)</small>
 									</label>
 								</div>
 
+								<div class="input-checkbox">
+									<input type="checkbox" id="category-6">
+									<label for="category-6">
+										<span></span>
+										Smartphones
+										<small>(740)</small>
+									</label>
+								</div>
 							</div>
 						</div>
 						<!-- /aside Widget -->
@@ -197,7 +205,7 @@
 
 					<!-- store products -->
 						<div class="row">
-							{% for p in all_products %}
+							{% for p in sel_goods %}
 							<!-- product -->
 							<div class="col-md-3">
 								<div class="product" style="padding-top: 5px">
@@ -259,5 +267,5 @@
 			}
 		</style>
 		<script src="{% static 'js/basket.js' %}"></script>
-		<script src="{% static 'js/select.js' %}"></script>
+        <script src="{% static 'js/select.js' %}"></script>
 {% endblock content %}
