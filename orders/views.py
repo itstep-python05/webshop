@@ -7,9 +7,15 @@ from .models import Order
 def index(request):
     return render(request, 'orders/index.html', context={
         'title': 'Список заказов',
-        'user_orders': Order.objects.filter(user_id=1)
+        'user_orders': Order.objects.filter(user_id=request.user.id)
     })
 
+
+def confirm(request):
+    return render(request, 'orders/confirm.html', context={
+        'title': 'Подтверждение заказа',
+        'user_orders': Order.objects.filter(user_id=request.user.id)
+    })
 
 def create(request):
     return render(request, 'orders/create.html', context={
@@ -55,4 +61,24 @@ def ajax_basket(request):
     response['count'] = len(user_orders)
 
     # 6 - Отправляем ответ в JS:
+    return JsonResponse(response)
+
+
+def ajax_basket_display(request):
+    # 0 - Создаем пустой словарь для сборки ответа на AJAX-запроса:
+    response = dict()
+    # 1 - Извлекаем ID пользователя из AJAX-запроса:
+    uid = request.GET['uid']
+
+    # 3 - Извлекаем список заказов данного пользователя:
+    user_orders = Order.objects.filter(user_id=uid)
+
+    # 4 - Вычисляем общую стоимость всех покупок данного пользователя:
+    s = 0
+    for order in user_orders:
+        s += order.amount
+
+    # 5 - Записываем в ответ общую стоимость и количество товаров:
+    response['amount'] = s
+    response['count'] = len(user_orders)
     return JsonResponse(response)

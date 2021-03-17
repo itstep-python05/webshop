@@ -19,6 +19,7 @@
  		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
  		<![endif]-->
 		<script src="{% static 'js/jquery.min.js' %}"></script>
+		<script src="{% static 'js/basket_display.js' %}"></script>
 
     </head>
 	<body>
@@ -34,7 +35,18 @@
 					</ul>
 					<ul class="header-links pull-right">
 						<li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
-						<li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+						<li>
+							<a href="#">
+								<i class="fa fa-user-o">
+								{% if user.is_authenticated %}
+									{{ user.username }}
+								{% else %}
+									Гость
+								{% endif %}
+								</i>
+							</a>
+							<input id="user_id" type="hidden" value="{{user.id}}"/>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -99,8 +111,8 @@
 											<h5 id="amount">Общая стоимость: 0.00грн</h5>
 										</div>
 										<div class="cart-btns">
-											<a href="#">Управление корзиной</a>
-											<a href="#">Подтверждение заказа<i class="fa fa-arrow-circle-right"></i></a>
+											<a href="/orders">Управление корзиной</a>
+											<a href="/orders/confirm">Подтверждение заказа<i class="fa fa-arrow-circle-right"></i></a>
 										</div>
 									</div>
 								</div>

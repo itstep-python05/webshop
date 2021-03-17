@@ -1,0 +1,78 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+		<div id="breadcrumb" class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="breadcrumb-header">{{ title }}</h3>
+						<ul class="breadcrumb-tree">
+							<li><a href="#">orders</a></li>
+							<li class="active">index</li>
+						</ul>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<div class="section small">
+			<div class="container">
+				<div class="row">
+                    <!---CONTENT PLACEHOLDER --->
+					<table id="orders_table" border="1">
+						<thead>
+							<tr>
+								<th>Order</th>
+								<th>Product</th>
+								<th>Price</th>
+								<th>Date</th>
+								<th>Status</th>
+								<th>Manage</th>
+
+							</tr>
+						</thead>
+						<tbody>
+							{% for order in user_orders %}
+								<tr>
+									<td>{{ order.title }}</td>
+									<td>{{ order.product.title }}</td>
+									<td>{{ order.amount }}</td>
+									<td>{{ order.date }}</td>
+									<td>{{ order.status }}</td>
+									<td>
+										<button class="btn btn-primary">Delete</button>
+									</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					<!---/CONTENT PLACEHOLDER --->
+				</div>
+			</div>
+		</div>
+		<style>
+			#orders_table {
+				width: 100%;
+			}
+			#orders_table th{
+				text-align: center;
+				font-size: 10pt;
+				padding: 5px;
+				color: darkcyan;
+				font-weight: normal;
+				font-style: italic;
+			}
+			#orders_table td{
+				text-align: center;
+				font-size: 10pt;
+				padding: 5px;
+				color: normal;
+				font-weight: normal;
+				font-style: italic;
+			}
+
+		</style>
+{% endblock content %}
